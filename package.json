@@ -1,0 +1,11 @@
+{
+  "name": "CodeKata",
+  "version": "1.0.0",
+  "author": "Gustavo Verzola <gustavo@verzola.net>",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-phpspec": "*",
+    "gulp-notify": "~2.1.0",
+    "gulp-plumber": "~0.6.6"
+  }
+}
