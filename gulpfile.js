@@ -2,33 +2,34 @@
 var gulp = require('gulp')
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
-    phpspec = require('gulp-phpspec');
+    phpunit = require('gulp-phpunit');
 
 // Paths
-    var phpspec_path = './bin/phpspec run',
-    php_files = ['src/**/*.php', 'spec/**/*.php'];
+    var phpunit_path = 'bin/phpunit',
+    php_files = ['src/**/*.php', 'tests/**/*.php'];
 
 // Task
-gulp.task('phpspec', function() {
-    return gulp.src('')
+gulp.task('phpunit', function() {
+    return gulp.src('phpunit.xml')
         .pipe(plumber({errorHandler: notify.onError({
-            title: "[PHPSpec] Failed!",
+            title: "[PHPUnit] Failed!",
             message: "Make it pass!",
             icon: __dirname + '/fail.png'
         })}))
-        .pipe(phpspec(phpspec_path, {
+        .pipe(phpunit(phpunit_path, {
             notify: true,
-            clear: true
+            clear: true,
+            debug: false
         }))
         .pipe(notify({
-            title: "[PHPSpec] Passed!",
+            title: "[PHPUnit] Passed!",
             message: "Time to refactor!",
             icon: __dirname + '/pass.png'
         }));
 });
 
 gulp.task('watch', function() {
-    gulp.watch(php_files, ['phpspec']);
+    gulp.watch(php_files, ['phpunit']);
 });
 
-gulp.task('default', ['phpspec', 'watch']);
+gulp.task('default', ['phpunit', 'watch']);

@@ -7,7 +7,7 @@
         }
     ],
     "require-dev": {
-        "phpspec/phpspec": "*"
+        "phpunit/phpunit": "*"
     },
     "config": {
         "bin-dir": "bin"
