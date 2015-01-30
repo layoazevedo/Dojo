@@ -12,8 +12,8 @@ var gulp = require('gulp')
 gulp.task('phpunit', function() {
     return gulp.src('phpunit.xml')
         .pipe(plumber({errorHandler: notify.onError({
-            title: "[PHPUnit] Failed!",
-            message: "Make it pass!",
+            title: "[PHPUnit] Vermelho!",
+            message: ":'(",
             icon: __dirname + '/fail.png'
         })}))
         .pipe(phpunit(phpunit_path, {
@@ -22,8 +22,8 @@ gulp.task('phpunit', function() {
             debug: false
         }))
         .pipe(notify({
-            title: "[PHPUnit] Passed!",
-            message: "Time to refactor!",
+            title: "[PHPUnit] Verde!",
+            message: ":D",
             icon: __dirname + '/pass.png'
         }));
 });
